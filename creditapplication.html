@@ -3,21 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Application Form</title>
+    <title>Credit Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .header, .section, .footer {
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+        }
+        .section h2 {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .signature {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <form id="creditForm" action="https://6782581.suitetalk.com/restlet.nl?script=1931&deploy=1" method="POST">
-        <label for="creditAmount">Amount of Credit Requested:</label>
-        <input type="number" id="creditAmount" name="creditAmount" required>
-        <input type="hidden" id="token" name="token" value="">
-        <button type="submit">Submit</button>
-    </form>
-
-    <script>
-        // This script extracts the token from the URL and sets it as the value of the hidden input
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
-        document.getElementById('token').value = token;
-    </script>
+    <div class="container">
+        <div class="header">
+            <p>200 S. Washington St. #305<br>Green Bay, WI 54301</p>
+        </div>
+        <div class="section">
+            <h2>CREDIT APPLICATION</h2>
+            <div class="flex-row">
+                <div>
+                    <p>BILL TO:</p>
+                </div>
+                <div>
+                    <p>SHIP TO:</p>
+                </div>
+            </div>
+            <div class="flex-row">
+                <p>YES NO</p>
+                <p>PRINCIPAL OWNER / OFFICERS:</p>
+            </div>
+            <div class="flex-column">
+                <label for="owner1">1. ______________</label>
+                <label for="contact1">CONTACT: ______________________________________</label>
+                <label for="owner2">2. ______________</label>
+                <label for="contact2">CONTACT: ______________________________________</label>
+                <label for="owner3">3. ______________</label>
+                <label for="contact3">CONTACT: ______________________________________</label>
+            </div>
+            <div class="flex-row">
+                <div>
+                    <p>PHONE #: ______________</p>
+                </div>
+                <div>
+                    <p>BANK: ______________</p>
+                </div>
+            </div>
+            <div class="flex-row">
+                <div>
+                    <p>PHONE: ______________</p>
+                </div>
+                <div>
+                    <p>FAX #: ______________</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>TRADE REFERENCES</h2>
+                <div class="flex-column">
+                    <label for="trade1">1. ______________</label>
+                    <label for="trade2">2. ______________</label>
+                    <label for="trade3">3. ______________</label>
+                </div>
+            </div>
+            <div class="flex-column">
+                <label for="tax-status">TAX STATUS:</label>
+                <label for="exempt">EXEMPT (IF EXEMPT, PROVIDE TAX EXEMPT CERTIFICATE) </label>
+                <label for="charge-sales-tax">CHARGE SALES TAX $ ______________</label>
+            </div>
+        </div>
+        <div class="section">
+            <h2>TERMS AND CONDITIONS</h2>
+            <p>You understand and agree to our payment terms of Net 30 Days on open account and agree that our payments are not dependent on when your customer pays you. If payment is not made when due you agree to pay a charge of 1.5% per month. If you, the buyer, default, you agree to pay Telocin Group, Inc. any collection fees and/or attorney fees if incurred by Telocin Group, Inc. in a collection action against you, the Buyer. You also authorize Telocin Group, Inc. to investigate your credit history, bank references, and other information deemed necessary to extend credit. This information will be held in strict confidence. By signing below you are agreeing to the above terms and conditions.</p>
+            <div class="signature">
+                <label for="signature">Signature of Owner or Officer: _____________________</label>
+                <label for="printed-name">Printed Name of Signer: _____________________</label>
+                <label for="date">Date: _____________________</label>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="flex-row">
+                <div>
+                    <p>ACCT #: ______________</p>
+                    <p>APPROVAL</p>
+                </div>
+                <div>
+                    <p>Accounts Receivable</p>
+                    <p>(920) 499-3171</p>
+                    <p>Fax (920) 499-9409</p>
+                    <p>Finance@totalenergysystems.com</p>
+                    <p>Finance@totalindustrialair.com</p>
+                </div>
+            </div>
+            <div class="flex-column">
+                <label for="accounts-payable">ACCOUNTS PAYABLE CONTACT: ______________</label>
+                <label for="ap-phone">A/P PHONE: ______________</label>
+                <label for="ap-email">A/P EMAIL: ______________________________________</label>
+                <label for="po-required">PO# REQUIRED?: YES NO</label>
+                <label for="po-format">If yes, provide PO # or PO Format ex:(XX-XXXX):</label>
+                <label for="credit-limit">Credit Limit: $ ______________</label>
+                <label for="comments">Comments: ____________________________________________________</label>
+                <label for="credit-limit-requested">CREDIT LIMIT REQUESTED: ______________</label>
+                <label for="telocin-group">TELOCIN GROUP, INC.</label>
+                <label for="title">Title: ______________</label>
+                <label for="credit-dept-email">CREDIT DEPT. EMAIL: ______________</label>
+                <label for="billing-portal">Billing Portal Used?: YES NO</label>
+                <label for="portal">If YES: Which portal? ______________</label>
+                <label for="tes-tia">TES/TIA SALES REP NAME: ______________</label>
+                <label for="duns">DUNS#: ______________</label>
+                <label for="incorporated">INCORPORATED: ______________</label>
+            </div>
+        </div>
+        <p class="footer-text">rev070124</p>
+    </div>
 </body>
 </html>
