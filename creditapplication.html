@@ -33,108 +33,116 @@
         .signature {
             margin-top: 20px;
         }
+        .input-field {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <p>200 S. Washington St. #305<br>Green Bay, WI 54301</p>
-        </div>
-        <div class="section">
-            <h2>CREDIT APPLICATION</h2>
-            <div class="flex-row">
-                <div>
-                    <p>BILL TO:</p>
-                </div>
-                <div>
-                    <p>SHIP TO:</p>
-                </div>
+        <form id="creditApplicationForm">
+            <div class="header">
+                <p>200 S. Washington St. #305<br>Green Bay, WI 54301</p>
             </div>
-            <div class="flex-row">
-                <p>YES NO</p>
-                <p>PRINCIPAL OWNER / OFFICERS:</p>
-            </div>
-            <div class="flex-column">
-                <label for="owner1">1. ______________</label>
-                <label for="contact1">CONTACT: ______________________________________</label>
-                <label for="owner2">2. ______________</label>
-                <label for="contact2">CONTACT: ______________________________________</label>
-                <label for="owner3">3. ______________</label>
-                <label for="contact3">CONTACT: ______________________________________</label>
-            </div>
-            <div class="flex-row">
-                <div>
-                    <p>PHONE #: ______________</p>
+            <div class="section">
+                <h2>CREDIT APPLICATION</h2>
+                <div class="flex-row">
+                    <div>
+                        <label for="billTo">BILL TO:</label>
+                        <input type="text" id="billTo" name="billTo" class="input-field">
+                    </div>
+                    <div>
+                        <label for="shipTo">SHIP TO:</label>
+                        <input type="text" id="shipTo" name="shipTo" class="input-field">
+                    </div>
                 </div>
-                <div>
-                    <p>BANK: ______________</p>
+                <div class="flex-row">
+                    <label for="principalOwner">PRINCIPAL OWNER / OFFICERS:</label>
                 </div>
-            </div>
-            <div class="flex-row">
-                <div>
-                    <p>PHONE: ______________</p>
+                <div class="flex-column">
+                    <label for="owner1">1. <input type="text" id="owner1" name="owner1" class="input-field"></label>
+                    <label for="contact1">CONTACT: <input type="text" id="contact1" name="contact1" class="input-field"></label>
+                    <label for="owner2">2. <input type="text" id="owner2" name="owner2" class="input-field"></label>
+                    <label for="contact2">CONTACT: <input type="text" id="contact2" name="contact2" class="input-field"></label>
+                    <label for="owner3">3. <input type="text" id="owner3" name="owner3" class="input-field"></label>
+                    <label for="contact3">CONTACT: <input type="text" id="contact3" name="contact3" class="input-field"></label>
                 </div>
-                <div>
-                    <p>FAX #: ______________</p>
+                <div class="flex-row">
+                    <div>
+                        <label for="phone">PHONE #: <input type="text" id="phone" name="phone" class="input-field"></label>
+                    </div>
+                    <div>
+                        <label for="bank">BANK: <input type="text" id="bank" name="bank" class="input-field"></label>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div>
+                        <label for="fax">FAX #: <input type="text" id="fax" name="fax" class="input-field"></label>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>TRADE REFERENCES</h2>
+                    <div class="flex-column">
+                        <label for="trade1">1. <input type="text" id="trade1" name="trade1" class="input-field"></label>
+                        <label for="trade2">2. <input type="text" id="trade2" name="trade2" class="input-field"></label>
+                        <label for="trade3">3. <input type="text" id="trade3" name="trade3" class="input-field"></label>
+                    </div>
+                </div>
+                <div class="flex-column">
+                    <label for="taxStatus">TAX STATUS:</label>
+                    <label for="exempt">EXEMPT (IF EXEMPT, PROVIDE TAX EXEMPT CERTIFICATE) 
+                        <input type="checkbox" id="exempt" name="taxStatus" value="exempt">
+                    </label>
+                    <label for="chargeSalesTax">CHARGE SALES TAX $
+                        <input type="text" id="chargeSalesTax" name="chargeSalesTax" class="input-field">
+                    </label>
                 </div>
             </div>
             <div class="section">
-                <h2>TRADE REFERENCES</h2>
+                <h2>TERMS AND CONDITIONS</h2>
+                <p>You understand and agree to our payment terms of Net 30 Days on open account and agree that our payments are not dependent on when your customer pays you. If payment is not made when due you agree to pay a charge of 1.5% per month. If you, the buyer, default, you agree to pay Telocin Group, Inc. any collection fees and/or attorney fees if incurred by Telocin Group, Inc. in a collection action against you, the Buyer. You also authorize Telocin Group, Inc. to investigate your credit history, bank references, and other information deemed necessary to extend credit. This information will be held in strict confidence. By signing below you are agreeing to the above terms and conditions.</p>
+                <div class="signature">
+                    <label for="signature">Signature of Owner or Officer: <input type="text" id="signature" name="signature" class="input-field"></label>
+                    <label for="printedName">Printed Name of Signer: <input type="text" id="printedName" name="printedName" class="input-field"></label>
+                    <label for="date">Date: <input type="date" id="date" name="date" class="input-field"></label>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="flex-row">
+                    <div>
+                        <label for="acctNumber">ACCT #: <input type="text" id="acctNumber" name="acctNumber" class="input-field"></label>
+                        <p>APPROVAL</p>
+                    </div>
+                    <div>
+                        <p>Accounts Receivable</p>
+                        <p>(920) 499-3171</p>
+                        <p>Fax (920) 499-9409</p>
+                        <p>Finance@totalenergysystems.com</p>
+                        <p>Finance@totalindustrialair.com</p>
+                    </div>
+                </div>
                 <div class="flex-column">
-                    <label for="trade1">1. ______________</label>
-                    <label for="trade2">2. ______________</label>
-                    <label for="trade3">3. ______________</label>
+                    <label for="accountsPayable">ACCOUNTS PAYABLE CONTACT: <input type="text" id="accountsPayable" name="accountsPayable" class="input-field"></label>
+                    <label for="apPhone">A/P PHONE: <input type="text" id="apPhone" name="apPhone" class="input-field"></label>
+                    <label for="apEmail">A/P EMAIL: <input type="email" id="apEmail" name="apEmail" class="input-field"></label>
+                    <label for="poRequired">PO# REQUIRED?: YES <input type="radio" id="poRequiredYes" name="poRequired" value="yes"> NO <input type="radio" id="poRequiredNo" name="poRequired" value="no"></label>
+                    <label for="poFormat">If yes, provide PO # or PO Format ex:(XX-XXXX): <input type="text" id="poFormat" name="poFormat" class="input-field"></label>
+                    <label for="creditLimit">Credit Limit: $ <input type="text" id="creditLimit" name="creditLimit" class="input-field"></label>
+                    <label for="comments">Comments: <textarea id="comments" name="comments" class="input-field"></textarea></label>
+                    <label for="creditLimitRequested">CREDIT LIMIT REQUESTED: <input type="text" id="creditLimitRequested" name="creditLimitRequested" class="input-field"></label>
+                    <label for="telocinGroup">TELOCIN GROUP, INC.</label>
+                    <label for="title">Title: <input type="text" id="title" name="title" class="input-field"></label>
+                    <label for="creditDeptEmail">CREDIT DEPT. EMAIL: <input type="email" id="creditDeptEmail" name="creditDeptEmail" class="input-field"></label>
+                    <label for="billingPortalUsed">Billing Portal Used?: YES <input type="radio" id="billingPortalYes" name="billingPortalUsed" value="yes"> NO <input type="radio" id="billingPortalNo" name="billingPortalUsed" value="no"></label>
+                    <label for="portal">If YES: Which portal? <input type="text" id="portal" name="portal" class="input-field"></label>
+                    <label for="tesTiaSalesRep">TES/TIA SALES REP NAME: <input type="text" id="tesTiaSalesRep" name="tesTiaSalesRep" class="input-field"></label>
+                    <label for="duns">DUNS#: <input type="text" id="duns" name="duns" class="input-field"></label>
+                    <label for="incorporated">INCORPORATED: <input type="text" id="incorporated" name="incorporated" class="input-field"></label>
                 </div>
             </div>
-            <div class="flex-column">
-                <label for="tax-status">TAX STATUS:</label>
-                <label for="exempt">EXEMPT (IF EXEMPT, PROVIDE TAX EXEMPT CERTIFICATE) </label>
-                <label for="charge-sales-tax">CHARGE SALES TAX $ ______________</label>
-            </div>
-        </div>
-        <div class="section">
-            <h2>TERMS AND CONDITIONS</h2>
-            <p>You understand and agree to our payment terms of Net 30 Days on open account and agree that our payments are not dependent on when your customer pays you. If payment is not made when due you agree to pay a charge of 1.5% per month. If you, the buyer, default, you agree to pay Telocin Group, Inc. any collection fees and/or attorney fees if incurred by Telocin Group, Inc. in a collection action against you, the Buyer. You also authorize Telocin Group, Inc. to investigate your credit history, bank references, and other information deemed necessary to extend credit. This information will be held in strict confidence. By signing below you are agreeing to the above terms and conditions.</p>
-            <div class="signature">
-                <label for="signature">Signature of Owner or Officer: _____________________</label>
-                <label for="printed-name">Printed Name of Signer: _____________________</label>
-                <label for="date">Date: _____________________</label>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="flex-row">
-                <div>
-                    <p>ACCT #: ______________</p>
-                    <p>APPROVAL</p>
-                </div>
-                <div>
-                    <p>Accounts Receivable</p>
-                    <p>(920) 499-3171</p>
-                    <p>Fax (920) 499-9409</p>
-                    <p>Finance@totalenergysystems.com</p>
-                    <p>Finance@totalindustrialair.com</p>
-                </div>
-            </div>
-            <div class="flex-column">
-                <label for="accounts-payable">ACCOUNTS PAYABLE CONTACT: ______________</label>
-                <label for="ap-phone">A/P PHONE: ______________</label>
-                <label for="ap-email">A/P EMAIL: ______________________________________</label>
-                <label for="po-required">PO# REQUIRED?: YES NO</label>
-                <label for="po-format">If yes, provide PO # or PO Format ex:(XX-XXXX):</label>
-                <label for="credit-limit">Credit Limit: $ ______________</label>
-                <label for="comments">Comments: ____________________________________________________</label>
-                <label for="credit-limit-requested">CREDIT LIMIT REQUESTED: ______________</label>
-                <label for="telocin-group">TELOCIN GROUP, INC.</label>
-                <label for="title">Title: ______________</label>
-                <label for="credit-dept-email">CREDIT DEPT. EMAIL: ______________</label>
-                <label for="billing-portal">Billing Portal Used?: YES NO</label>
-                <label for="portal">If YES: Which portal? ______________</label>
-                <label for="tes-tia">TES/TIA SALES REP NAME: ______________</label>
-                <label for="duns">DUNS#: ______________</label>
-                <label for="incorporated">INCORPORATED: ______________</label>
-            </div>
-        </div>
-        <p class="footer-text">rev070124</p>
+            <p class="footer-text">rev070124</p>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </body>
 </html>
