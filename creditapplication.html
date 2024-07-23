@@ -49,59 +49,6 @@
             flex: 1; /* Allow input to take up the remaining space */
         }
     </style>
-    <script>
-        function toggleShipTo(checkbox) {
-            const shipToSection = document.getElementById('shipToSection');
-            const shipToFields = shipToSection.querySelectorAll('input');
-            const billToFields = document.getElementById('billToSection').querySelectorAll('input');
-
-            if (checkbox.checked) {
-                shipToSection.classList.add('hidden');
-                shipToFields.forEach((field, index) => {
-                    field.value = billToFields[index].value;
-                });
-            } else {
-                shipToSection.classList.remove('hidden');
-                shipToFields.forEach((field) => {
-                    field.value = '';
-                });
-            }
-        }
-
-        function clearSignature() {
-            const canvas = document.getElementById('signatureCanvas');
-            const context = canvas.getContext('2d');
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            document.getElementById('signature').value = '';
-        }
-
-        window.onload = function() {
-            const canvas = document.getElementById('signatureCanvas');
-            const context = canvas.getContext('2d');
-            let isDrawing = false;
-
-            canvas.addEventListener('mousedown', function(e) {
-                isDrawing = true;
-                context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-            });
-
-            canvas.addEventListener('mousemove', function(e) {
-                if (isDrawing) {
-                    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-                    context.stroke();
-                }
-            });
-
-            canvas.addEventListener('mouseup', function() {
-                isDrawing = false;
-                document.getElementById('signature').value = canvas.toDataURL();
-            });
-
-            canvas.addEventListener('mouseleave', function() {
-                isDrawing = false;
-            });
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -346,5 +293,58 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <script>
+        function toggleShipTo(checkbox) {
+            const shipToSection = document.getElementById('shipToSection');
+            const shipToFields = shipToSection.querySelectorAll('input');
+            const billToFields = document.getElementById('billToSection').querySelectorAll('input');
+
+            if (checkbox.checked) {
+                shipToSection.classList.add('hidden');
+                shipToFields.forEach((field, index) => {
+                    field.value = billToFields[index].value;
+                });
+            } else {
+                shipToSection.classList.remove('hidden');
+                shipToFields.forEach((field) => {
+                    field.value = '';
+                });
+            }
+        }
+
+        function clearSignature() {
+            const canvas = document.getElementById('signatureCanvas');
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            document.getElementById('signature').value = '';
+        }
+
+        window.onload = function() {
+            const canvas = document.getElementById('signatureCanvas');
+            const context = canvas.getContext('2d');
+            let isDrawing = false;
+
+            canvas.addEventListener('mousedown', function(e) {
+                isDrawing = true;
+                context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            });
+
+            canvas.addEventListener('mousemove', function(e) {
+                if (isDrawing) {
+                    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                    context.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', function() {
+                isDrawing = false;
+                document.getElementById('signature').value = canvas.toDataURL();
+            });
+
+            canvas.addEventListener('mouseleave', function() {
+                isDrawing = false;
+            });
+        }
+    </script>
 </body>
 </html>
