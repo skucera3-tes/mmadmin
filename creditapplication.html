@@ -343,50 +343,45 @@
             const context = canvas.getContext('2d');
             let isDrawing = false;
 
-            canvas.addEventListener('mousedown', function(evt) {
+            function startDrawing(position) {
                 isDrawing = true;
-                const mousePos = getMousePos(canvas, evt);
-                context.moveTo(mousePos.x, mousePos.y);
+                context.moveTo(position.x, position.y);
+            }
+
+            function draw(position) {
+                if (isDrawing) {
+                    context.lineTo(position.x, position.y);
+                    context.stroke();
+                }
+            }
+
+            function stopDrawing() {
+                isDrawing = false;
+                document.getElementById('signature').value = canvas.toDataURL();
+            }
+
+            canvas.addEventListener('mousedown', function(evt) {
+                startDrawing(getMousePos(canvas, evt));
             });
 
             canvas.addEventListener('mousemove', function(evt) {
-                if (isDrawing) {
-                    const mousePos = getMousePos(canvas, evt);
-                    context.lineTo(mousePos.x, mousePos.y);
-                    context.stroke();
-                }
+                draw(getMousePos(canvas, evt));
             });
 
-            canvas.addEventListener('mouseup', function() {
-                isDrawing = false;
-                document.getElementById('signature').value = canvas.toDataURL();
-            });
-
-            canvas.addEventListener('mouseleave', function() {
-                isDrawing = false;
-            });
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseleave', stopDrawing);
 
             canvas.addEventListener('touchstart', function(evt) {
-                isDrawing = true;
-                const touch = evt.touches[0];
-                const touchPos = getTouchPos(canvas, touch);
-                context.moveTo(touchPos.x, touchPos.y);
+                evt.preventDefault(); // Prevent scrolling when touching the canvas
+                startDrawing(getTouchPos(canvas, evt.touches[0]));
             });
 
             canvas.addEventListener('touchmove', function(evt) {
-                if (isDrawing) {
-                    const touch = evt.touches[0];
-                    const touchPos = getTouchPos(canvas, touch);
-                    context.lineTo(touchPos.x, touchPos.y);
-                    context.stroke();
-                    evt.preventDefault();
-                }
+                evt.preventDefault(); // Prevent scrolling when touching the canvas
+                draw(getTouchPos(canvas, evt.touches[0]));
             });
 
-            canvas.addEventListener('touchend', function() {
-                isDrawing = false;
-                document.getElementById('signature').value = canvas.toDataURL();
-            });
+            canvas.addEventListener('touchend', stopDrawing);
         }
     </script>
 </body>
