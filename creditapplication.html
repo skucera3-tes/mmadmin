@@ -48,6 +48,9 @@
         .form-group input, .form-group textarea, .form-group canvas {
             flex: 1; /* Allow input to take up the remaining space */
         }
+        canvas {
+            border: 1px solid #000;
+        }
     </style>
 </head>
 <body>
@@ -200,7 +203,7 @@
                 <div class="signature">
                     <div class="form-group">
                         <label for="signatureCanvas">Signature of Owner or Officer:</label>
-                        <canvas id="signatureCanvas" class="input-field" width="300" height="150" style="border: 1px solid #000;"></canvas>
+                        <canvas id="signatureCanvas" class="input-field" width="300" height="150"></canvas>
                         <input type="hidden" id="signature" name="signature">
                         <button type="button" onclick="clearSignature()">Clear</button>
                     </div>
@@ -319,19 +322,37 @@
             document.getElementById('signature').value = '';
         }
 
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function getTouchPos(canvas, touch) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+        }
+
         window.onload = function() {
             const canvas = document.getElementById('signatureCanvas');
             const context = canvas.getContext('2d');
             let isDrawing = false;
 
-            canvas.addEventListener('mousedown', function(e) {
+            canvas.addEventListener('mousedown', function(evt) {
                 isDrawing = true;
-                context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                const mousePos = getMousePos(canvas, evt);
+                context.moveTo(mousePos.x, mousePos.y);
             });
 
-            canvas.addEventListener('mousemove', function(e) {
+            canvas.addEventListener('mousemove', function(evt) {
                 if (isDrawing) {
-                    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                    const mousePos = getMousePos(canvas, evt);
+                    context.lineTo(mousePos.x, mousePos.y);
                     context.stroke();
                 }
             });
@@ -343,6 +364,28 @@
 
             canvas.addEventListener('mouseleave', function() {
                 isDrawing = false;
+            });
+
+            canvas.addEventListener('touchstart', function(evt) {
+                isDrawing = true;
+                const touch = evt.touches[0];
+                const touchPos = getTouchPos(canvas, touch);
+                context.moveTo(touchPos.x, touchPos.y);
+            });
+
+            canvas.addEventListener('touchmove', function(evt) {
+                if (isDrawing) {
+                    const touch = evt.touches[0];
+                    const touchPos = getTouchPos(canvas, touch);
+                    context.lineTo(touchPos.x, touchPos.y);
+                    context.stroke();
+                    evt.preventDefault();
+                }
+            });
+
+            canvas.addEventListener('touchend', function() {
+                isDrawing = false;
+                document.getElementById('signature').value = canvas.toDataURL();
             });
         }
     </script>
