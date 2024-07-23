@@ -33,7 +33,29 @@
         .input-field {
             margin: 5px 0;
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function toggleShipTo(checkbox) {
+            const shipToSection = document.getElementById('shipToSection');
+            const shipToFields = shipToSection.querySelectorAll('input');
+            const billToFields = document.getElementById('billToSection').querySelectorAll('input');
+
+            if (checkbox.checked) {
+                shipToSection.classList.add('hidden');
+                shipToFields.forEach((field, index) => {
+                    field.value = billToFields[index].value;
+                });
+            } else {
+                shipToSection.classList.remove('hidden');
+                shipToFields.forEach((field) => {
+                    field.value = '';
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -43,27 +65,28 @@
             </div>
             <div class="section">
                 <h2>CREDIT APPLICATION</h2>
-                <div class="flex-row">
-                    <div class="flex-column">
-                        <label for="billTo">BILL TO:</label>
-                        <label for="billToCompanyName">Company Name: <input type="text" id="billToCompanyName" name="billToCompanyName" class="input-field"></label>
-                        <label for="billToAddressLine1">Address Line 1: <input type="text" id="billToAddressLine1" name="billToAddressLine1" class="input-field"></label>
-                        <label for="billToAddressLine2">Address Line 2: <input type="text" id="billToAddressLine2" name="billToAddressLine2" class="input-field"></label>
-                        <label for="billToCity">City: <input type="text" id="billToCity" name="billToCity" class="input-field"></label>
-                        <label for="billToState">State: <input type="text" id="billToState" name="billToState" class="input-field"></label>
-                        <label for="billToZip">Zip: <input type="text" id="billToZip" name="billToZip" class="input-field"></label>
-                        <label for="billToPhone">Phone: <input type="text" id="billToPhone" name="billToPhone" class="input-field"></label>
-                    </div>
-                    <div class="flex-column">
-                        <label for="shipTo">SHIP TO:</label>
-                        <label for="shipToCompanyName">Company Name: <input type="text" id="shipToCompanyName" name="shipToCompanyName" class="input-field"></label>
-                        <label for="shipToAddressLine1">Address Line 1: <input type="text" id="shipToAddressLine1" name="shipToAddressLine1" class="input-field"></label>
-                        <label for="shipToAddressLine2">Address Line 2: <input type="text" id="shipToAddressLine2" name="shipToAddressLine2" class="input-field"></label>
-                        <label for="shipToCity">City: <input type="text" id="shipToCity" name="shipToCity" class="input-field"></label>
-                        <label for="shipToState">State: <input type="text" id="shipToState" name="shipToState" class="input-field"></label>
-                        <label for="shipToZip">Zip: <input type="text" id="shipToZip" name="shipToZip" class="input-field"></label>
-                        <label for="shipToPhone">Phone: <input type="text" id="shipToPhone" name="shipToPhone" class="input-field"></label>
-                    </div>
+                <div id="billToSection" class="flex-column">
+                    <label for="billTo">BILL TO:</label>
+                    <label for="billToCompanyName">Company Name: <input type="text" id="billToCompanyName" name="billToCompanyName" class="input-field"></label>
+                    <label for="billToAddressLine1">Address Line 1: <input type="text" id="billToAddressLine1" name="billToAddressLine1" class="input-field"></label>
+                    <label for="billToAddressLine2">Address Line 2: <input type="text" id="billToAddressLine2" name="billToAddressLine2" class="input-field"></label>
+                    <label for="billToCity">City: <input type="text" id="billToCity" name="billToCity" class="input-field"></label>
+                    <label for="billToState">State: <input type="text" id="billToState" name="billToState" class="input-field"></label>
+                    <label for="billToZip">Zip: <input type="text" id="billToZip" name="billToZip" class="input-field"></label>
+                    <label for="billToPhone">Phone: <input type="text" id="billToPhone" name="billToPhone" class="input-field"></label>
+                </div>
+                <div>
+                    <label for="sameAsBillTo">Same as Bill To: <input type="checkbox" id="sameAsBillTo" name="sameAsBillTo" onclick="toggleShipTo(this)"></label>
+                </div>
+                <div id="shipToSection" class="flex-column">
+                    <label for="shipTo">SHIP TO:</label>
+                    <label for="shipToCompanyName">Company Name: <input type="text" id="shipToCompanyName" name="shipToCompanyName" class="input-field"></label>
+                    <label for="shipToAddressLine1">Address Line 1: <input type="text" id="shipToAddressLine1" name="shipToAddressLine1" class="input-field"></label>
+                    <label for="shipToAddressLine2">Address Line 2: <input type="text" id="shipToAddressLine2" name="shipToAddressLine2" class="input-field"></label>
+                    <label for="shipToCity">City: <input type="text" id="shipToCity" name="shipToCity" class="input-field"></label>
+                    <label for="shipToState">State: <input type="text" id="shipToState" name="shipToState" class="input-field"></label>
+                    <label for="shipToZip">Zip: <input type="text" id="shipToZip" name="shipToZip" class="input-field"></label>
+                    <label for="shipToPhone">Phone: <input type="text" id="shipToPhone" name="shipToPhone" class="input-field"></label>
                 </div>
                 <div class="flex-row">
                     <label for="principalOwner">PRINCIPAL OWNER / OFFICERS:</label>
