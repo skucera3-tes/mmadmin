@@ -36,6 +36,18 @@
         .hidden {
             display: none;
         }
+        .form-group {
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            width: 150px; /* Set a fixed width for labels */
+            margin-right: 10px; /* Add some space between label and input */
+            text-align: right; /* Align text to the right */
+        }
+        .form-group input {
+            flex: 1; /* Allow input to take up the remaining space */
+        }
     </style>
     <script>
         function toggleShipTo(checkbox) {
@@ -66,58 +78,128 @@
             <div class="section">
                 <h2>CREDIT APPLICATION</h2>
                 <div id="billToSection" class="flex-column">
-                    <label for="billTo">BILL TO:</label>
-                    <label for="billToCompanyName">Company Name: <input type="text" id="billToCompanyName" name="billToCompanyName" class="input-field"></label>
-                    <label for="billToAddressLine1">Address Line 1: <input type="text" id="billToAddressLine1" name="billToAddressLine1" class="input-field"></label>
-                    <label for="billToAddressLine2">Address Line 2: <input type="text" id="billToAddressLine2" name="billToAddressLine2" class="input-field"></label>
-                    <label for="billToCity">City: <input type="text" id="billToCity" name="billToCity" class="input-field"></label>
-                    <label for="billToState">State: <input type="text" id="billToState" name="billToState" class="input-field"></label>
-                    <label for="billToZip">Zip: <input type="text" id="billToZip" name="billToZip" class="input-field"></label>
-                    <label for="billToPhone">Phone: <input type="text" id="billToPhone" name="billToPhone" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="billToCompanyName">BILL TO - Company Name:</label>
+                        <input type="text" id="billToCompanyName" name="billToCompanyName" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToAddressLine1">Address Line 1:</label>
+                        <input type="text" id="billToAddressLine1" name="billToAddressLine1" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToAddressLine2">Address Line 2:</label>
+                        <input type="text" id="billToAddressLine2" name="billToAddressLine2" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToCity">City:</label>
+                        <input type="text" id="billToCity" name="billToCity" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToState">State:</label>
+                        <input type="text" id="billToState" name="billToState" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToZip">Zip:</label>
+                        <input type="text" id="billToZip" name="billToZip" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="billToPhone">Phone:</label>
+                        <input type="text" id="billToPhone" name="billToPhone" class="input-field">
+                    </div>
                 </div>
                 <div>
                     <label for="sameAsBillTo">Same as Bill To: <input type="checkbox" id="sameAsBillTo" name="sameAsBillTo" onclick="toggleShipTo(this)"></label>
                 </div>
                 <div id="shipToSection" class="flex-column">
-                    <label for="shipTo">SHIP TO:</label>
-                    <label for="shipToCompanyName">Company Name: <input type="text" id="shipToCompanyName" name="shipToCompanyName" class="input-field"></label>
-                    <label for="shipToAddressLine1">Address Line 1: <input type="text" id="shipToAddressLine1" name="shipToAddressLine1" class="input-field"></label>
-                    <label for="shipToAddressLine2">Address Line 2: <input type="text" id="shipToAddressLine2" name="shipToAddressLine2" class="input-field"></label>
-                    <label for="shipToCity">City: <input type="text" id="shipToCity" name="shipToCity" class="input-field"></label>
-                    <label for="shipToState">State: <input type="text" id="shipToState" name="shipToState" class="input-field"></label>
-                    <label for="shipToZip">Zip: <input type="text" id="shipToZip" name="shipToZip" class="input-field"></label>
-                    <label for="shipToPhone">Phone: <input type="text" id="shipToPhone" name="shipToPhone" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="shipToCompanyName">SHIP TO - Company Name:</label>
+                        <input type="text" id="shipToCompanyName" name="shipToCompanyName" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToAddressLine1">Address Line 1:</label>
+                        <input type="text" id="shipToAddressLine1" name="shipToAddressLine1" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToAddressLine2">Address Line 2:</label>
+                        <input type="text" id="shipToAddressLine2" name="shipToAddressLine2" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToCity">City:</label>
+                        <input type="text" id="shipToCity" name="shipToCity" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToState">State:</label>
+                        <input type="text" id="shipToState" name="shipToState" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToZip">Zip:</label>
+                        <input type="text" id="shipToZip" name="shipToZip" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipToPhone">Phone:</label>
+                        <input type="text" id="shipToPhone" name="shipToPhone" class="input-field">
+                    </div>
                 </div>
                 <div class="flex-row">
                     <label for="principalOwner">PRINCIPAL OWNER / OFFICERS:</label>
                 </div>
                 <div class="flex-column">
-                    <label for="owner1">1. <input type="text" id="owner1" name="owner1" class="input-field"></label>
-                    <label for="contact1">CONTACT: <input type="text" id="contact1" name="contact1" class="input-field"></label>
-                    <label for="owner2">2. <input type="text" id="owner2" name="owner2" class="input-field"></label>
-                    <label for="contact2">CONTACT: <input type="text" id="contact2" name="contact2" class="input-field"></label>
-                    <label for="owner3">3. <input type="text" id="owner3" name="owner3" class="input-field"></label>
-                    <label for="contact3">CONTACT: <input type="text" id="contact3" name="contact3" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="owner1">1. </label>
+                        <input type="text" id="owner1" name="owner1" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact1">CONTACT:</label>
+                        <input type="text" id="contact1" name="contact1" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="owner2">2. </label>
+                        <input type="text" id="owner2" name="owner2" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact2">CONTACT:</label>
+                        <input type="text" id="contact2" name="contact2" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="owner3">3. </label>
+                        <input type="text" id="owner3" name="owner3" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact3">CONTACT:</label>
+                        <input type="text" id="contact3" name="contact3" class="input-field">
+                    </div>
                 </div>
                 <div class="flex-row">
-                    <div>
-                        <label for="phone">PHONE #: <input type="text" id="phone" name="phone" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="phone">PHONE #:</label>
+                        <input type="text" id="phone" name="phone" class="input-field">
                     </div>
-                    <div>
-                        <label for="bank">BANK: <input type="text" id="bank" name="bank" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="bank">BANK:</label>
+                        <input type="text" id="bank" name="bank" class="input-field">
                     </div>
                 </div>
                 <div class="flex-row">
-                    <div>
-                        <label for="fax">FAX #: <input type="text" id="fax" name="fax" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="fax">FAX #:</label>
+                        <input type="text" id="fax" name="fax" class="input-field">
                     </div>
                 </div>
                 <div class="section">
                     <h2>TRADE REFERENCES</h2>
                     <div class="flex-column">
-                        <label for="trade1">1. <input type="text" id="trade1" name="trade1" class="input-field"></label>
-                        <label for="trade2">2. <input type="text" id="trade2" name="trade2" class="input-field"></label>
-                        <label for="trade3">3. <input type="text" id="trade3" name="trade3" class="input-field"></label>
+                        <div class="form-group">
+                            <label for="trade1">1. </label>
+                            <input type="text" id="trade1" name="trade1" class="input-field">
+                        </div>
+                        <div class="form-group">
+                            <label for="trade2">2. </label>
+                            <input type="text" id="trade2" name="trade2" class="input-field">
+                        </div>
+                        <div class="form-group">
+                            <label for="trade3">3. </label>
+                            <input type="text" id="trade3" name="trade3" class="input-field">
+                        </div>
                     </div>
                 </div>
                 <div class="flex-column">
@@ -125,26 +207,39 @@
                     <label for="exempt">EXEMPT (IF EXEMPT, PROVIDE TAX EXEMPT CERTIFICATE) 
                         <input type="checkbox" id="exempt" name="taxStatus" value="exempt">
                     </label>
-                    <label for="chargeSalesTax">CHARGE SALES TAX $
+                    <div class="form-group">
+                        <label for="chargeSalesTax">CHARGE SALES TAX $:</label>
                         <input type="text" id="chargeSalesTax" name="chargeSalesTax" class="input-field">
-                    </label>
+                    </div>
                 </div>
             </div>
             <div class="section">
                 <h2>TERMS AND CONDITIONS</h2>
                 <p>You understand and agree to our payment terms of Net 30 Days on open account and agree that our payments are not dependent on when your customer pays you. If payment is not made when due you agree to pay a charge of 1.5% per month. If you, the buyer, default, you agree to pay Telocin Group, Inc. any collection fees and/or attorney fees if incurred by Telocin Group, Inc. in a collection action against you, the Buyer. You also authorize Telocin Group, Inc. to investigate your credit history, bank references, and other information deemed necessary to extend credit. This information will be held in strict confidence. By signing below you are agreeing to the above terms and conditions.</p>
                 <div class="signature">
-                    <label for="signature">Signature of Owner or Officer: <input type="text" id="signature" name="signature" class="input-field"></label>
-                    <label for="printedName">Printed Name of Signer: <input type="text" id="printedName" name="printedName" class="input-field"></label>
-                    <label for="date">Date: <input type="date" id="date" name="date" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="signature">Signature of Owner or Officer:</label>
+                        <input type="text" id="signature" name="signature" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="printedName">Printed Name of Signer:</label>
+                        <input type="text" id="printedName" name="printedName" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" class="input-field">
+                    </div>
                 </div>
             </div>
             <div class="footer">
                 <div class="flex-row">
-                    <div>
-                        <label for="acctNumber">ACCT #: <input type="text" id="acctNumber" name="acctNumber" class="input-field"></label>
-                        <p>APPROVAL</p>
+                    <div class="form-group">
+                        <label for="acctNumber">ACCT #:</label>
+                        <input type="text" id="acctNumber" name="acctNumber" class="input-field">
                     </div>
+                    <p>APPROVAL</p>
+                </div>
+                <div class="flex-row">
                     <div>
                         <p>Accounts Receivable</p>
                         <p>(920) 499-3171</p>
@@ -154,22 +249,61 @@
                     </div>
                 </div>
                 <div class="flex-column">
-                    <label for="accountsPayable">ACCOUNTS PAYABLE CONTACT: <input type="text" id="accountsPayable" name="accountsPayable" class="input-field"></label>
-                    <label for="apPhone">A/P PHONE: <input type="text" id="apPhone" name="apPhone" class="input-field"></label>
-                    <label for="apEmail">A/P EMAIL: <input type="email" id="apEmail" name="apEmail" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="accountsPayable">ACCOUNTS PAYABLE CONTACT:</label>
+                        <input type="text" id="accountsPayable" name="accountsPayable" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="apPhone">A/P PHONE:</label>
+                        <input type="text" id="apPhone" name="apPhone" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="apEmail">A/P EMAIL:</label>
+                        <input type="email" id="apEmail" name="apEmail" class="input-field">
+                    </div>
                     <label for="poRequired">PO# REQUIRED?: YES <input type="radio" id="poRequiredYes" name="poRequired" value="yes"> NO <input type="radio" id="poRequiredNo" name="poRequired" value="no"></label>
-                    <label for="poFormat">If yes, provide PO # or PO Format ex:(XX-XXXX): <input type="text" id="poFormat" name="poFormat" class="input-field"></label>
-                    <label for="creditLimit">Credit Limit: $ <input type="text" id="creditLimit" name="creditLimit" class="input-field"></label>
-                    <label for="comments">Comments: <textarea id="comments" name="comments" class="input-field"></textarea></label>
-                    <label for="creditLimitRequested">CREDIT LIMIT REQUESTED: <input type="text" id="creditLimitRequested" name="creditLimitRequested" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="poFormat">If yes, provide PO # or PO Format ex:(XX-XXXX):</label>
+                        <input type="text" id="poFormat" name="poFormat" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="creditLimit">Credit Limit: $</label>
+                        <input type="text" id="creditLimit" name="creditLimit" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" class="input-field"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="creditLimitRequested">CREDIT LIMIT REQUESTED:</label>
+                        <input type="text" id="creditLimitRequested" name="creditLimitRequested" class="input-field">
+                    </div>
                     <label for="telocinGroup">TELOCIN GROUP, INC.</label>
-                    <label for="title">Title: <input type="text" id="title" name="title" class="input-field"></label>
-                    <label for="creditDeptEmail">CREDIT DEPT. EMAIL: <input type="email" id="creditDeptEmail" name="creditDeptEmail" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="creditDeptEmail">CREDIT DEPT. EMAIL:</label>
+                        <input type="email" id="creditDeptEmail" name="creditDeptEmail" class="input-field">
+                    </div>
                     <label for="billingPortalUsed">Billing Portal Used?: YES <input type="radio" id="billingPortalYes" name="billingPortalUsed" value="yes"> NO <input type="radio" id="billingPortalNo" name="billingPortalUsed" value="no"></label>
-                    <label for="portal">If YES: Which portal? <input type="text" id="portal" name="portal" class="input-field"></label>
-                    <label for="tesTiaSalesRep">TES/TIA SALES REP NAME: <input type="text" id="tesTiaSalesRep" name="tesTiaSalesRep" class="input-field"></label>
-                    <label for="duns">DUNS#: <input type="text" id="duns" name="duns" class="input-field"></label>
-                    <label for="incorporated">INCORPORATED: <input type="text" id="incorporated" name="incorporated" class="input-field"></label>
+                    <div class="form-group">
+                        <label for="portal">If YES: Which portal?</label>
+                        <input type="text" id="portal" name="portal" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="tesTiaSalesRep">TES/TIA SALES REP NAME:</label>
+                        <input type="text" id="tesTiaSalesRep" name="tesTiaSalesRep" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="duns">DUNS#:</label>
+                        <input type="text" id="duns" name="duns" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="incorporated">INCORPORATED:</label>
+                        <input type="text" id="incorporated" name="incorporated" class="input-field">
+                    </div>
                 </div>
             </div>
             <p class="footer-text">rev070124</p>
