@@ -45,7 +45,7 @@
             margin-right: 10px; /* Add some space between label and input */
             text-align: right; /* Align text to the right */
         }
-        .form-group input {
+        .form-group input, .form-group textarea, .form-group canvas {
             flex: 1; /* Allow input to take up the remaining space */
         }
     </style>
@@ -66,6 +66,40 @@
                     field.value = '';
                 });
             }
+        }
+
+        function clearSignature() {
+            const canvas = document.getElementById('signatureCanvas');
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            document.getElementById('signature').value = '';
+        }
+
+        window.onload = function() {
+            const canvas = document.getElementById('signatureCanvas');
+            const context = canvas.getContext('2d');
+            let isDrawing = false;
+
+            canvas.addEventListener('mousedown', function(e) {
+                isDrawing = true;
+                context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            });
+
+            canvas.addEventListener('mousemove', function(e) {
+                if (isDrawing) {
+                    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                    context.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', function() {
+                isDrawing = false;
+                document.getElementById('signature').value = canvas.toDataURL();
+            });
+
+            canvas.addEventListener('mouseleave', function() {
+                isDrawing = false;
+            });
         }
     </script>
 </head>
@@ -218,8 +252,10 @@
                 <p>You understand and agree to our payment terms of Net 30 Days on open account and agree that our payments are not dependent on when your customer pays you. If payment is not made when due you agree to pay a charge of 1.5% per month. If you, the buyer, default, you agree to pay Telocin Group, Inc. any collection fees and/or attorney fees if incurred by Telocin Group, Inc. in a collection action against you, the Buyer. You also authorize Telocin Group, Inc. to investigate your credit history, bank references, and other information deemed necessary to extend credit. This information will be held in strict confidence. By signing below you are agreeing to the above terms and conditions.</p>
                 <div class="signature">
                     <div class="form-group">
-                        <label for="signature">Signature of Owner or Officer:</label>
-                        <input type="text" id="signature" name="signature" class="input-field">
+                        <label for="signatureCanvas">Signature of Owner or Officer:</label>
+                        <canvas id="signatureCanvas" class="input-field" width="300" height="150" style="border: 1px solid #000;"></canvas>
+                        <input type="hidden" id="signature" name="signature">
+                        <button type="button" onclick="clearSignature()">Clear</button>
                     </div>
                     <div class="form-group">
                         <label for="printedName">Printed Name of Signer:</label>
